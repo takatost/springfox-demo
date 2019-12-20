@@ -1,0 +1,63 @@
+buildscript {
+	repositories {
+		mavenLocal()
+		maven {
+			url "https://mirrors.cloud.tencent.com/nexus/repository/maven-public/"
+		}
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+
+	dependencies {
+		classpath 'io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE'
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:2.2.2.RELEASE"
+		classpath "io.freefair.gradle:lombok-plugin:4.1.6"
+	}
+}
+
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "org.springframework.boot"
+apply plugin: "io.freefair.lombok"
+
+group = 'net.coding'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = sourceCompatibility
+
+ext {
+	springBootVersion = '2.2.2.RELEASE'
+}
+
+repositories {
+	mavenLocal()
+	maven {
+		url "https://mirrors.cloud.tencent.com/nexus/repository/maven-public/"
+	}
+}
+
+dependencies {
+	// Use Jetty instead of tomcat
+	compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
+		exclude(module: 'spring-boot-starter-tomcat')
+	}
+	compile "org.springframework.boot:spring-boot-starter-jetty:${springBootVersion}"
+	compile "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
+
+	compile ('io.springfox:springfox-swagger2:2.9.2') {
+		exclude(module: 'io.swagger:swagger-annotations')
+		exclude(module: 'io.swagger:swagger-models')
+	}
+	compile("io.swagger:swagger-annotations:1.6.0")
+	compile("io.swagger:swagger-models:1.6.0")
+
+	compile "ch.qos.logback:logback-classic:1.1.6"
+	compile "ch.qos.logback:logback-core:1.1.6"
+	compile "org.slf4j:slf4j-api:1.7.19"
+	compile 'commons-logging:commons-logging:1.2'
+
+	compile 'org.projectlombok:lombok:1.18.10'
+
+	testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+}
