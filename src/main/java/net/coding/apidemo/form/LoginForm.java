@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@ApiiModel(description = "标签")
+@ApiModel(description = "标签")
 public class LoginForm {
     @ApiModelProperty(value = "用户名", required = true)
     private String username;
