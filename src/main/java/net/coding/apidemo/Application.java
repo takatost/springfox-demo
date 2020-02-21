@@ -28,13 +28,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class Application {
 
-	private static final Logger log = LoggerFactory.getLogger(Application.class);
+//	private static final Logger log = LoggerFactory.getLogger(Application.class);
 
-	private static volatile Server server;
+//	private static volatile Server server;
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+//	public static void main(String[] args) {
+//		SpringApplication.run(Application.class, args);
+//	}
 
 	@Bean
 	public Docket docket(ServletContext servletContext) {
@@ -61,7 +61,7 @@ public class Application {
 	@Bean
 	public JettyServletWebServerFactory jettyEmbeddedServletContainerFactory() {
 		log.info("Jetty version: " + Server.getVersion());
-		JettyServletWebServerFactory factory = new JettyServletWebServerFactory();
+//		JettyServletWebServerFactory factory = new JettyServletWebServerFactory();
 
 		int port = 8090;
 		factory.setPort(port);
