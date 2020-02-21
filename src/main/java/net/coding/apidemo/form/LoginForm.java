@@ -13,9 +13,9 @@ public class LoginForm {
     @ApiModelProperty(value = "用户名", required = true)
     private String username;
 
-    @ApiModelProperty(value = "密码", required = true)
+    @ApiiModelProperty(value = "密码", required = true)
     private String password;
 
-    @ApiModelProperty(value = "记住我")
+    @ApiModelProperty(value = "记住我密码2")
     private Boolean rememberMe;
 }
