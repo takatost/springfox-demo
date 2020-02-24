@@ -59,5 +59,7 @@ dependencies {
 
 	compile 'org.projectlombok:lombok:1.18.10'
 
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+
 	testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
 }
